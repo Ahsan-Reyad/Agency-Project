@@ -8,7 +8,7 @@ export default function Testimonials() {
       name: "Sarah Khan",
       role: "Entrepreneur",
       feedback:
-        "Ahsan Web Studio transformed my brand’s online presence. Clean, modern and perfectly executed.",
+        "Ahsan Web Studio transformed my brand's online presence. Clean, modern and perfectly executed.",
       image: assets.user1,
     },
     {

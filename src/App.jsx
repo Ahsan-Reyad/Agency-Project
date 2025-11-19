@@ -15,7 +15,7 @@ import { Toaster } from "react-hot-toast";
 // AOS IMPORT
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Testimonials from "./components/testimonials ";
+import Testimonials from "./components/Testimonials ";
 import Footer from "./components/Footer";
 
 function App() {
