@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+* {
+  font-family: "Lexend", sans-serif;
+  cursor: none;
+}
+
+@theme {
+  --color-primary: #415c66;
+}
+@keyframes slideUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 1s ease-out forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+  animation: slideUp 0.8s ease-out;
+}
+section {
+  scroll-margin-top: 84px; /* navbar height + small gap */
+}
+
+/* -----------------------new code---------------------------- */
+/* --- Smooth scroll & overflow fix --- */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  overflow-x: hidden;
+}
+
+/* --- Keyframes ও utility classes for reveals --- */
+@keyframes slideUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideLeft {
+  0% {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideRight {
+  0% {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* base reveal state */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.9s cubic-bezier(0.17, 0.84, 0.44, 1);
+}
+
+/* active state — animation applied via JS */
+.reveal.active[data-anim="up"] {
+  animation: slideUp 0.9s ease-out forwards;
+}
+.reveal.active[data-anim="left"] {
+  animation: slideLeft 0.9s ease-out forwards;
+}
+.reveal.active[data-anim="right"] {
+  animation: slideRight 0.9s ease-out forwards;
+}
+
+/* delay helpers (also you can use inline style data-delay) */
+.reveal[data-delay="100"] {
+  transition-delay: 0.1s;
+}
+.reveal[data-delay="200"] {
+  transition-delay: 0.2s;
+}
+.reveal[data-delay="300"] {
+  transition-delay: 0.3s;
+}
+.reveal[data-delay="400"] {
+  transition-delay: 0.4s;
+}
+.reveal[data-delay="500"] {
+  transition-delay: 0.5s;
+}
+
+/* small utility for staggering container children */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.stagger.active > * {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.7s cubic-bezier(0.17, 0.84, 0.44, 1);
+}
+.stagger.active > *:nth-child(1) {
+  transition-delay: 0.08s;
+}
+.stagger.active > *:nth-child(2) {
+  transition-delay: 0.16s;
+}
+.stagger.active > *:nth-child(3) {
+  transition-delay: 0.24s;
+}
+.stagger.active > *:nth-child(4) {
+  transition-delay: 0.32s;
+}
+.stagger.active > *:nth-child(5) {
+  transition-delay: 0.4s;
+}
+
+/* parallax helper — elements with data-parallax will be moved via JS transform */
+[data-parallax] {
+  will-change: transform;
+}
